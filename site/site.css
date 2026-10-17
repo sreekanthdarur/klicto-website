@@ -115,3 +115,4 @@ p,li{line-height:1.65;color:var(--text)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .quote{border-left:4px solid var(--yellow);margin:26px 0;padding:6px 0 6px 20px;font-size:21px;font-weight:700;font-style:italic;color:var(--navy);line-height:1.45}.quote cite{display:block;font-size:14px;font-style:normal;font-weight:600;color:var(--muted);margin-top:8px}
+.storyimgs{display:grid;gap:20px;max-width:900px;margin:auto}.storyimgs img{width:100%;border-radius:16px;box-shadow:0 12px 40px #08245220}
