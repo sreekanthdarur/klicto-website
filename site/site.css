@@ -114,3 +114,4 @@ p,li{line-height:1.65;color:var(--text)}
  .brand{font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.quote{border-left:4px solid var(--yellow);margin:26px 0;padding:6px 0 6px 20px;font-size:21px;font-weight:700;font-style:italic;color:var(--navy);line-height:1.45}.quote cite{display:block;font-size:14px;font-style:normal;font-weight:600;color:var(--muted);margin-top:8px}
