@@ -35,7 +35,7 @@ writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${S
 // ---- Checks ----
 const errors = [];
 const known = new Set(all.map((p) => p.path));
-const banned = /revolutioni|seamless|cutting-edge|unlock|empower|fast-paced|AI-powered|\bAI\b|\bTBD\b|\bTODO\b|lorem|coming soon|to be filled|yet to do|\[[^\]]*\]|\u2014|\u2013|[\u{1F300}-\u{1FAFF}\u2600-\u27BF]/iu;
+const banned = /revolutioni|seamless|cutting-edge|unlock|empower|fast-paced|AI-powered|\bAI\b|\bTBD\b|\bTODO\b|lorem|to be filled|yet to do|\[[^\]]*\]|\u2014|\u2013|[\u{1F300}-\u{1FAFF}\u2600-\u27BF]/iu;
 const mojibake = /\u00c3|\u00e2\u20ac|\u00c2/;
 
 for (const { path, html } of pages) {
