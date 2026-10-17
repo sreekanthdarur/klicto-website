@@ -1,17 +1,41 @@
-# Klicto official website
+# Klicto website
 
-Standalone marketing website for Klicto, separate from its Flutter application and accounting backend.
+Static marketing and legal site for [klicto.in](https://klicto.in). No framework and no runtime dependencies.
 
-## Deployment
+## Build
 
-Use Cloudflare Pages with the Vite preset: `npm run build` and output directory `dist` once the website project is added.
+```
+npm run build
+```
 
-## Status
+`scripts/build.mjs` renders every page from `site/pages.mjs` and `site/legal.mjs` into `dist/`, copies `public/` and the stylesheet, and writes `sitemap.xml` and `robots.txt`.
 
-Website source and optimized images are being prepared in the review branch. Download/public APK and contact form remain disabled pending verified configuration. The interactive demo is synthetic only.
+The build fails if any page has:
 
-## Product positioning
+- a title of 60 characters or more, or a description of 160 or more
+- a dead internal link or anchor, a missing file, or an image without alt text or size
+- placeholder or banned wording (see the `banned` pattern in `scripts/build.mjs`)
+- invalid structured data
 
-**Your next bill starts with Klicto.**
+## Deploy (Cloudflare Workers static assets)
 
-Free everyday billing. Smarter assistance when you need it.
+```
+npm run build
+npx wrangler deploy
+```
+
+For a preview that does not touch production: `npx wrangler versions upload`.
+
+## Where to edit
+
+- Business facts (operator, address, email, support hours, effective date): `SITE` in `scripts/lib.mjs`. Change them once and every page, the footer and the legal pages follow.
+- Page copy: `site/pages.mjs`. Legal text: `site/legal.mjs`.
+- Styles: `site/site.css`.
+- Images: `public/assets/` (WebP).
+
+## Notes
+
+- The site sets no cookies and has no analytics. If analytics is added, update `site/legal.mjs` (Cookie Policy and Privacy Policy) and add a consent banner first.
+- No phone or WhatsApp number is shown. Add it to the contact page and `SITE` when it is active.
+- Add the Play Store button to `/download/` only when a live listing URL exists.
+- The in-app Terms and Privacy text must match the website versions exactly.
